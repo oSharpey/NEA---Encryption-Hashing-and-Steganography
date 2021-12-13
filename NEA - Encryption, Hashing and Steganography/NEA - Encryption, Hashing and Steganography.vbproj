@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B4D29CC0-0461-4216-AD51-CC549CDCE592}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>NEA___Encryption__Hashing_and_Steganography.My.MyApplication</StartupObject>
-    <RootNamespace>NEA___Encryption__Hashing_and_Steganography</RootNamespace>
-    <AssemblyName>NEA___Encryption__Hashing_and_Steganography</AssemblyName>
+    <StartupObject>NEA.My.MyApplication</StartupObject>
+    <RootNamespace>NEA</RootNamespace>
+    <AssemblyName>NEA</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -38,7 +38,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>NEA___Encryption__Hashing_and_Steganography.xml</DocumentationFile>
+    <DocumentationFile>NEA.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -48,7 +48,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>NEA___Encryption__Hashing_and_Steganography.xml</DocumentationFile>
+    <DocumentationFile>NEA.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -192,6 +192,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
