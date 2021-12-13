@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <StartupObject>NEA___Encryption__Hashing_and_Steganography.My.MyApplication</StartupObject>
     <RootNamespace>NEA___Encryption__Hashing_and_Steganography</RootNamespace>
-    <AssemblyName>NEA - Encryption, Hashing and Steganography</AssemblyName>
+    <AssemblyName>NEA___Encryption__Hashing_and_Steganography</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -38,7 +38,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>NEA - Encryption, Hashing and Steganography.xml</DocumentationFile>
+    <DocumentationFile>NEA___Encryption__Hashing_and_Steganography.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -48,7 +48,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>NEA - Encryption, Hashing and Steganography.xml</DocumentationFile>
+    <DocumentationFile>NEA___Encryption__Hashing_and_Steganography.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -74,6 +74,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Symbolic ShareX.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FontAwesome.Sharp, Version=5.15.4.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
@@ -290,6 +293,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Symbolic ShareX.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Symbolic ShareX.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
