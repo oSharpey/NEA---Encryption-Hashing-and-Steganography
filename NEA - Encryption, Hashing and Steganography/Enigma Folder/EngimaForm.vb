@@ -1,7 +1,7 @@
 ﻿Imports System.Text.RegularExpressions
 Imports System.IO
 Public Class EngimaForm
-    Protected Function PlugboardValid(ByVal letterPairs As String)
+    Private Function PlugboardValid(ByVal letterPairs As String)
         'Function that insures only letter pairs are in the plugboard field
 
         Dim plugboardArray() As String

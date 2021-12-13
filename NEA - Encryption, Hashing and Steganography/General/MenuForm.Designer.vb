@@ -245,7 +245,7 @@ Partial Class MenuForm
         '
         'PictureBoxHome
         '
-        Me.PictureBoxHome.Image = Global.NEA___Encryption__Hashing_and_Steganography.My.Resources.Resources.Symbolic_ShareX
+        Me.PictureBoxHome.Image = Global.NEA_E_H_S.My.Resources.Resources.Symbolic_ShareX
         Me.PictureBoxHome.Location = New System.Drawing.Point(26, 25)
         Me.PictureBoxHome.Name = "PictureBoxHome"
         Me.PictureBoxHome.Size = New System.Drawing.Size(162, 89)
@@ -255,7 +255,7 @@ Partial Class MenuForm
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.NEA___Encryption__Hashing_and_Steganography.My.Resources.Resources.Symbolic_ShareX
+        Me.PictureBox1.Image = Global.NEA_E_H_S.My.Resources.Resources.Symbolic_ShareX
         Me.PictureBox1.Location = New System.Drawing.Point(247, 45)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(476, 315)
