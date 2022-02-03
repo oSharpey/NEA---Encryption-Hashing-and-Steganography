@@ -16,14 +16,14 @@ Public Class CaesarForm
     Private Sub CaesarEncryptButton_Click(sender As Object, e As EventArgs) Handles CaesarEncryptButton.Click
         Dim plaintext As String
         Dim cipherText As String
-        Dim shiftNum As Integer
+        Dim shiftNum As UInteger
         Dim utility As New Utilities
         Dim textRestriction As New Regex("\A[A-Za-z]+\Z")
 
         plaintext = CaeserInputTB.Text
 
         Try
-            shiftNum = Integer.Parse(ShiftNumInputTB.Text)
+            shiftNum = UInteger.Parse(ShiftNumInputTB.Text)
             If utility.MatchRegEx(plaintext, textRestriction) Then
                 cipherText = CeaserEnocode(plaintext, shiftNum)
                 CaesarOutputTB.Text = cipherText
@@ -40,14 +40,14 @@ Public Class CaesarForm
     Private Sub CaesarDecryptButton_Click(sender As Object, e As EventArgs) Handles CaesarDecryptButton.Click
         Dim plaintext As String
         Dim cipherText As String
-        Dim shiftNum As Integer
+        Dim shiftNum As UInteger
         Dim utility As New Utilities
         Dim textRestriction As New Regex("\A[A-Za-z]+\Z")
 
         plaintext = CaeserInputTB.Text
 
         Try
-            shiftNum = Integer.Parse(ShiftNumInputTB.Text)
+            shiftNum = UInteger.Parse(ShiftNumInputTB.Text)
             Select Case utility.MatchRegEx(plaintext, textRestriction)
                 Case True
                     cipherText = CeaserEnocode(plaintext, 26 - shiftNum)

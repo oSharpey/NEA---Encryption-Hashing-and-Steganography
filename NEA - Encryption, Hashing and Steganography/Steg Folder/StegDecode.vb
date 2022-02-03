@@ -5,7 +5,6 @@ Public Class StegDecode
 
     Public Function Decode(ByVal stegImage As Bitmap) As String
 
-        Dim bytes As New List(Of String)
         Dim binaryData As String = ""
         Dim decodedChar As String = ""
         Dim decodedData As String = ""
