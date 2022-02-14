@@ -13,9 +13,13 @@
     End Sub
 
 
-    Public Function Encode()
+    Public Function Encode() As String
+
+        'Intantiates each aspect of the enigma and passes each letter of the message through the machine
+        'returns the encrypted message 
+
         Dim plugboard As New Plugboard(plugboardsetting)
-        Dim relfector As New Reflector(reflectorsetting)
+        Dim reflector As New Reflector(reflectorsetting)
         Dim rotors As New Rotors(rotorsettings, ringpos, ringsetting)
 
         plaintext = UCase(plaintext)
@@ -26,7 +30,7 @@
                 rotors.CheckShift()
                 encryptedLetter = plugboard.PlugboardEncode(encryptedLetter)
                 encryptedLetter = rotors.FirstPass(encryptedLetter)
-                encryptedLetter = relfector.Encode(encryptedLetter)
+                encryptedLetter = reflector.Encode(encryptedLetter)
                 encryptedLetter = rotors.SecondPass(encryptedLetter)
                 encryptedLetter = plugboard.PlugboardEncode(encryptedLetter)
                 cipherText += encryptedLetter

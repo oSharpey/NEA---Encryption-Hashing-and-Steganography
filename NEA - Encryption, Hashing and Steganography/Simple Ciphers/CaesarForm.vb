@@ -1,6 +1,10 @@
 ﻿Imports System.Text.RegularExpressions
 Public Class CaesarForm
     Private Function CeaserEnocode(ByVal plaintext As String, ByVal shiftNum As Integer)
+
+        'standard caeser algorithm, shits the letter a certain number of places down the alphabet 
+
+
         Dim cipherText As String = ""
         plaintext = plaintext.ToUpper
         For Each letter In plaintext
@@ -14,6 +18,9 @@ Public Class CaesarForm
     End Function
 
     Private Sub CaesarEncryptButton_Click(sender As Object, e As EventArgs) Handles CaesarEncryptButton.Click
+
+        'handles encrypting the message 
+
         Dim plaintext As String
         Dim cipherText As String
         Dim shiftNum As UInteger
@@ -38,6 +45,9 @@ Public Class CaesarForm
     End Sub
 
     Private Sub CaesarDecryptButton_Click(sender As Object, e As EventArgs) Handles CaesarDecryptButton.Click
+
+        'handles decryption of the message 
+
         Dim plaintext As String
         Dim cipherText As String
         Dim shiftNum As UInteger

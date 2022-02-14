@@ -1,5 +1,5 @@
 ﻿''
-' For the design of this form I used a tutorial to help me 
+' For the design of this form I used a youtube tutorial to help me 
 ''
 
 Public Class CryptanalysisForm

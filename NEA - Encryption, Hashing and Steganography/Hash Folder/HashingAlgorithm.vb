@@ -17,11 +17,13 @@
 
 
     Private Function RR(ByVal x As UInteger, ByVal b As UInteger) As UInteger
+        'bitwise right rotoate function
         Dim w As Integer = 32
         Return ((x >> b) Or (x << (w - b)))
     End Function
 
     Private Function RShift(ByVal x As UInteger, ByVal n As UInteger) As UInteger
+        'bitwise right shift function
         Dim shifted As UInteger = x >> n
         Return shifted
     End Function
@@ -138,6 +140,8 @@
 
     Private Function Preprocessing(ByVal message As String) As List(Of IList(Of UInteger))
 
+        'process the messgage into 512 bit chuncks 
+
         Dim bits As List(Of UInteger)
         Dim length As UInteger
         Dim messagelenTemp As String
@@ -202,6 +206,8 @@
         k = Init(Kvalues.ToList)
         hlist = Init(Hvalues.ToList)
 
+
+        'initialising the constant values (all 32 bit unsigned integers)
 #Region "Assing contants values"
         h0 = hlist(0)
         h1 = hlist(1)
@@ -214,6 +220,7 @@
 #End Region
 
 
+        'call to preprocessing method to split message into 512 bit chunks 
         chunks = Preprocessing(message)
 
         For t = 0 To 31
@@ -221,11 +228,16 @@
         Next
 
         For Each chunk In chunks
+
+            'copy the chunk into the first 16 words of the array
+
             w = Chunker(chunk, 32)
+
             For x = 0 To 47
                 w.Add(templistW)
             Next
 
+            'Extend the first 16 words into the remaining 48 words w[16..63] of the message schedule array
             For i = 16 To 63
                 s0 = B16toB2(RR(Convert.ToUInt32(B2toB16(w(i - 15)), 16), 7) Xor RR(Convert.ToUInt32(B2toB16(w(i - 15)), 16), 18) Xor RShift(Convert.ToUInt32(B2toB16(w(i - 15)), 16), 3))
                 s1 = B16toB2(RR(Convert.ToUInt32(B2toB16(w(i - 2)), 16), 17) Xor RR(Convert.ToUInt32(B2toB16(w(i - 2)), 16), 19) Xor RShift(Convert.ToUInt32(B2toB16(w(i - 2)), 16), 10))
@@ -233,6 +245,7 @@
                 w(i) = B16toB2(tempintW)
             Next
 
+            'Initialise working variables to current hash value
             a = h0
             b = h1
             c = h2
@@ -242,6 +255,8 @@
             g = h6
             h = h7
 
+
+            'Compression Function main loop
             For j = 0 To 63
                 s2 = B16toB2(RR(Convert.ToUInt32(B2toB16(e), 16), 6) Xor RR(Convert.ToUInt32(B2toB16(e), 16), 11) Xor RR(Convert.ToUInt32(B2toB16(e), 16), 25))
                 ch = B16toB2((Convert.ToUInt32(B2toB16(e), 16) And Convert.ToUInt32(B2toB16(f), 16)) Xor (Not (Convert.ToUInt32(B2toB16(e), 16)) And Convert.ToUInt32(B2toB16(g), 16)))
@@ -260,6 +275,8 @@
                 b = a
                 a = B16toB2((Convert.ToUInt64(B2toB16(t1), 16) + Convert.ToUInt64(B2toB16(t2), 16)) Mod 2 ^ 32)
             Next
+
+            'Add the compressed chunk to the current hash value
             h0 = B16toB2((Convert.ToUInt64(B2toB16(h0), 16) + Convert.ToUInt64(B2toB16(a), 16)) Mod 2 ^ 32)
             h1 = B16toB2((Convert.ToUInt64(B2toB16(h1), 16) + Convert.ToUInt64(B2toB16(b), 16)) Mod 2 ^ 32)
             h2 = B16toB2((Convert.ToUInt64(B2toB16(h2), 16) + Convert.ToUInt64(B2toB16(c), 16)) Mod 2 ^ 32)
@@ -270,6 +287,8 @@
             h7 = B16toB2((Convert.ToUInt64(B2toB16(h7), 16) + Convert.ToUInt64(B2toB16(h), 16)) Mod 2 ^ 32)
 
         Next
+
+        'Produce the final hash value (big-endian)
 
         digest = B2toB16(h0) + B2toB16(h1) + B2toB16(h2) + B2toB16(h3) + B2toB16(h4) + B2toB16(h5) + B2toB16(h6) + B2toB16(h7)
 

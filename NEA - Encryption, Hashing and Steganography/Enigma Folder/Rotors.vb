@@ -8,7 +8,7 @@
     Private leftringpos, middleringpos, rightringpos As String
     Private rotationTrigger As Boolean
     Private ReadOnly alphabet As String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    Private Function Shift(ByVal str As String, ByVal shiftnum As Integer)
+    Private Function Shift(ByVal str As String, ByVal shiftnum As Integer) As String
         'Performs a caesar shift on the rotors,
         'this simulates setting the 'Ringstellung' on a real engima machine (changing the internal wiring)
 
@@ -30,6 +30,8 @@
     End Function
 
     Public Sub New(ByVal rotors() As String, ByVal ringPos As String, ByVal ringSetting As String)
+
+        'Constructor to initalise all the variables used for enigma 
 
         rotor1 = "EKMFLGDQVZNTOWYHXUSPAIBRCJ"
         rotor2 = "AJDKSIRUXBLHWTMCQGZNPYFVOE"
@@ -129,7 +131,7 @@
 
     End Sub
 
-    Public Function FirstPass(ByVal encryptedletter As String)
+    Public Function FirstPass(ByVal encryptedletter As String) As String
         Dim position As Integer
         Dim templetter As String
 
@@ -138,6 +140,8 @@
         rightRotorOffset = alphabet.IndexOf(rightringpos)
 
         ''PASSING THE LETTER THROUGH THE THREE ROTORS''
+        'gets the index of the letter in the rotor and swaps the
+        'letter with letter of the alphabet at that postion
         position = alphabet.IndexOf(encryptedletter)
         templetter = rightrotor((position + rightRotorOffset) Mod 26)
         position = alphabet.IndexOf(templetter)
@@ -158,10 +162,14 @@
         Return encryptedletter
     End Function
 
-    Public Function SecondPass(ByVal encryptedletter As String)
+    Public Function SecondPass(ByVal encryptedletter As String) As String
         Dim position As Integer
         Dim templetter As String
+
         ''PASSING THE LETTER BACK THROUGH THE THREE ROTORS''
+        'Oposite of the first pass, gets the index of the letter in the
+        'alphabet and swaps with the letter at that index in the rotors
+
         position = alphabet.IndexOf(encryptedletter)
         templetter = alphabet((position + leftRotorOffset) Mod 26)
         position = leftrotor.IndexOf(templetter)

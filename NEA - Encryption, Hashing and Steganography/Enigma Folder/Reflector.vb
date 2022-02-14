@@ -3,7 +3,7 @@
     Private encryptedletter As String
     Public Sub New(ByVal reflectorInput As String)
 
-#Region "REFELCTOR B"
+#Region "REFLECTOR B"
         reflectorB.Add("A", "Y")
         reflectorB.Add("B", "R")
         reflectorB.Add("C", "U")
@@ -75,8 +75,6 @@
         encryptedletter = encryptedletterinput
         If reflectorDictionary.ContainsKey(encryptedletter) Then
             If reflectorDictionary(encryptedletter) <> "" Then
-                'temp = reflectorDictionary.Keys.ToList.IndexOf(encryptedletter)
-                ' templetter = reflectorDictionary.Keys(temp)
                 encryptedletter = reflectorDictionary(encryptedletterinput)
             End If
         End If

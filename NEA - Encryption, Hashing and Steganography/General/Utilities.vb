@@ -1,6 +1,12 @@
 ﻿Imports System.Text.RegularExpressions
+
+'This class conatins some general conversions that other clases inherit from 
+
 Public Class Utilities
-    Public Function MatchRegEx(ByVal inputString As String, ByVal regexComp As Regex)
+
+
+    'function for input validation 
+    Public Function MatchRegEx(ByVal inputString As String, ByVal regexComp As Regex) As Boolean
         Dim stringArray() As String
         Dim comparisonString As String = ""
 
@@ -15,6 +21,8 @@ Public Class Utilities
 
     End Function
 
+
+    'Useful binary conversion operations 
     Public Function MessageToBinary(ByVal message As String) As String
         Dim asciiMessage As Integer
         Dim binmessage, tempbin As String
@@ -28,7 +36,7 @@ Public Class Utilities
         Return binmessage
 
     End Function
-    Protected Function BinToInt(ByVal binValue As String)
+    Protected Function BinToInt(ByVal binValue As String) As UInteger
         Dim intValue As UInt32
         Dim power As UInt64 = 1
 

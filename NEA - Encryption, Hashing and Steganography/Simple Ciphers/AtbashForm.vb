@@ -1,6 +1,10 @@
 ﻿Imports System.Text.RegularExpressions
 Public Class AtbashForm
     Private Function AtbashCipher(ByVal input As String)
+
+        'Atbash encryption algorithm, put simply it mirrors the alphabet
+        ' so an A becomes a Z, a B becomes a Y etc
+
         Dim N As Integer
         Dim output As String = ""
         N = Asc("Z") + Asc("A")
@@ -16,6 +20,9 @@ Public Class AtbashForm
 
 
     Private Sub AtbashEncryptButton_Click(sender As Object, e As EventArgs) Handles AtbashEncryptButton.Click
+
+        'Handles when the user presses the encrypt button 
+
         Dim atbashPlainText As String
         Dim atbashCipherText As String
         Dim utility As New Utilities

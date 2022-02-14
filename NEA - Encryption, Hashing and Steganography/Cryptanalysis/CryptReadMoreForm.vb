@@ -1,5 +1,8 @@
 ﻿Public Class CryptReadMoreForm
     Private Sub CryptReadMoreForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        'Sets up all the links that can be accessed through the application 
+
         engimaLink1.Links.Add(0, Len(engimaLink1.Text), "www.101computing.net/tag/enigma")
         engimaLink2.Links.Add(0, Len(engimaLink2.Text), "www.practicalcryptography.com/ciphers/enigma-cipher/")
         CaesarLink.Links.Add(0, Len(CaesarLink.Text), "www.practicalcryptography.com/ciphers/caesar-cipher/")
@@ -8,6 +11,8 @@
         SHALink1.Links.Add(0, Len(SHALink1.Text), "www.wikipedia.org/wiki/SHA-2")
         SHALink2.Links.Add(0, Len(SHALink2.Text), "www.youtube.com/watch?v=DMtFhACPnTY")
     End Sub
+
+    'These methods handle opening the default web browser when the link is clikced 
 
     Private Sub EngimaLink1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles engimaLink1.LinkClicked
         System.Diagnostics.Process.Start(e.Link.LinkData.ToString())

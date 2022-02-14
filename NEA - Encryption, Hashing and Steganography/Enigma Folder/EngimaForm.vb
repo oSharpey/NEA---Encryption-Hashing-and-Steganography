@@ -1,8 +1,8 @@
 ﻿Imports System.Text.RegularExpressions
 Imports System.IO
 Public Class EngimaForm
-    Private Function PlugboardValid(ByVal letterPairs As String)
-        'Function that insures only letter pairs are in the plugboard field
+    Private Function PlugboardValid(ByVal letterPairs As String) As Boolean
+        'Function that ensures only letter pairs are in the plugboard field
 
         Dim plugboardArray() As String
         Dim valid As Boolean = True
@@ -39,6 +39,9 @@ Public Class EngimaForm
 
 
         'these if and switch statements make sure that the user can only input certain characters
+        'uses regular expressions to validate the user input 
+        'program will spit out an error messsage if the input is not valid 
+
 
         Select Case plugboard
             Case ""
@@ -80,6 +83,9 @@ Public Class EngimaForm
     End Sub
 
     Private Sub EnigmaForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        'Sets all the combo boxes to the defualt value
+
         RotorLCB.SelectedIndex = 0
         RotorMCB.SelectedIndex = 0
         RotorRCB.SelectedIndex = 0
@@ -96,11 +102,17 @@ Public Class EngimaForm
     End Sub
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+
+        'removes any user inputed data from the input and output textboxes 
+
         InputTextBox.Clear()
         OutputTextBox.Clear()
     End Sub
 
     Private Sub ResetMachine_Click(sender As Object, e As EventArgs) Handles ResetMachine.Click
+
+        'Sets all user changeable values back to the default when button is pressed
+
         RotorLCB.SelectedIndex = 0
         RotorMCB.SelectedIndex = 0
         RotorRCB.SelectedIndex = 0
@@ -121,7 +133,9 @@ Public Class EngimaForm
     End Sub
 
     Private Sub SaveToFile(ByVal plainTextinput As String, ByVal reflectorinput As String, ByVal rotorsinput() As String, ByVal ringPosinput As String, ByVal ringSettinginput As String, ByVal plugboardinput As String, ByVal output As String)
+
         'saves the machine settings to a text file
+
         Dim filename As String = "EngimaTable.txt"
         Dim append As Boolean = True
 

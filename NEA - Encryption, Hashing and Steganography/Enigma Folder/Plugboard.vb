@@ -3,6 +3,8 @@
     Private ReadOnly plugboardDictionary As New Dictionary(Of String, String)
     Public Sub New(ByVal letterpairsinput As String)
 
+        'Constructor that sets up the dictionary for the plugboard to function
+
         plugboardSettings = letterpairsinput.ToUpper.Split(" ")
         For Each letterPair In plugboardSettings
             If Len(letterPair) = 2 Then
@@ -15,8 +17,11 @@
 
 
 
-    Public Function PlugboardEncode(ByVal letterInput As String)
+    Public Function PlugboardEncode(ByVal letterInput As String) As String
         Dim encryptedletter As String = letterInput
+
+        'sets the encrypted letter to the plaintexts letter corresponding value in the dictionary
+        '(used the inputted letter as the key)
 
         If plugboardDictionary.ContainsKey(letterInput) Then
             If plugboardDictionary(letterInput) <> "" Then

@@ -13,6 +13,10 @@ Public Class StegForm
         InputPicBox.SizeMode = PictureBoxSizeMode.StretchImage
         stegImage = InputPicBox.Image
 
+
+        'series of input validation checks to ensure the program will not crash if erroneous data is entered 
+
+
         If MessageInputTB.Text = "" Or InputPicBox.Image Is Nothing Then
             MessageBox.Show("Cannot decode, you have not entered all the data required")
 
@@ -49,6 +53,9 @@ Public Class StegForm
         Dim message As String = ""
 
         stegImage = InputPicBox.Image
+
+        'series of input validation checks to ensure the program will not crash if erroneous data is entered 
+
 
         If InputPicBox.Image Is Nothing Then
             MessageBox.Show("Cannot decode, you have not entered all the data required")
@@ -91,6 +98,9 @@ Public Class StegForm
     End Sub
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles clearButton.Click
+
+        'clears the input and output text boxes 
+
         MessageInputTB.Clear()
         outputBox.Clear()
     End Sub
