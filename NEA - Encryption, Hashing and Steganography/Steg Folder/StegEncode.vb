@@ -64,7 +64,7 @@
     End Function
 
 
-    Private Function GenarateRandString()
+    Private Function GenarateRandString() As String
         'This function creates a random string that allows each filename created to have a 
         'unique suffix so they do not overwrite eachother
 
